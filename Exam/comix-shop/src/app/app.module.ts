@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule  } from '@angular/forms';
-import { HttpClientModule  } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -58,19 +58,19 @@ import { NgxPaginationModule } from 'ngx-pagination'
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(), 
+    ToastrModule.forRoot(),
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
     NgxPaginationModule
   ],
   providers: [
-    AuthService, 
-    RequesterService, 
-    ComixService, 
-    CommentsService, 
+    AuthService,
+    RequesterService,
+    ComixService,
+    CommentsService,
     UserService,
     OrderService],
-    bootstrap: [AppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,36 +16,34 @@ import { OrderCreateModel } from '../../../models/order-create.model';
 export class OrderFinishComponent implements OnInit {
 
 
-  public orderId : string;
-  public comixId : string;
-  public buyerId : string;
+  public orderId: string;
+  public comixId: string;
+  public buyerId: string;
   constructor(
-    private authService : AuthService,
-    private comixService : ComixService,
-    private orderService : OrderService,
-    private toastr : ToastrService,
-    private route : ActivatedRoute) { }
+    private authService: AuthService,
+    private comixService: ComixService,
+    private orderService: OrderService,
+    private toastr: ToastrService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
 
     let id = this.route.snapshot.params["id"];
-    
+
     //get comix
-    this.orderService.getOrderById(id)  
-    .then((selectedOrder : any) => {
+    this.orderService.getOrderById(id)
+      .then((selectedOrder: any) => {
 
-      this.comixService.getAllComixes()
-        .then((comixes : any) => {
+        this.comixService.getAllComixes()
+          .then((comixes: any) => {
 
-          let selectedComix = comixes.filter(com => com.name === selectedOrder.comix)[0];
-          this.orderId = selectedOrder._id;
-          this.buyerId = selectedOrder._acl.creator;
-          this.comixId = selectedComix._id;
+            let selectedComix = comixes.filter(com => com.name === selectedOrder.comix)[0];
+            this.orderId = selectedOrder._id;
+            this.buyerId = selectedOrder._acl.creator;
+            this.comixId = selectedComix._id;
 
-        }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"));
-    
-    })
+          }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"));
 
+      })
   }
-
 }

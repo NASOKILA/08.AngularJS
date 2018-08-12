@@ -11,30 +11,30 @@ import { ComixEditModel } from '../../../models/comix-edit.model';
 })
 export class ComixEditComponent implements OnInit {
 
-  public comix : ComixEditModel;
+  public comix: ComixEditModel;
 
   constructor(
-      private comixService : ComixService, 
-      private toastr : ToastrService,
-      private router : Router,
-      private route : ActivatedRoute,
-    ) { }
+    private comixService: ComixService,
+    private toastr: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute,
+  ) { }
 
-  private validateModel(){
-    
-    if(this.comix.name === ""){
+  private validateModel() {
+
+    if (this.comix.name === null, this.comix.name === "", this.comix.name.trim() === "") {
       this.toastr.error('Invalid name input!', "Error!")
       return false;
     }
-    else if(this.comix.description === ""){
-      this.toastr.error('Invalid description input!', "Error!")      
+    else if (this.comix.description === null, this.comix.description === "", this.comix.description.trim() === "") {
+      this.toastr.error('Invalid description input!', "Error!")
       return false;
     }
-    else if(this.comix.image === ""){
+    else if (this.comix.image === null, this.comix.image === "", this.comix.image.trim() === "") {
       this.toastr.error('Invalid image input!', "Error!")
       return false;
     }
-    else if(this.comix.date === ""){
+    else if (this.comix.date === null, this.comix.date === "", this.comix.date.trim() === "") {
       this.toastr.error('Invalid date input!', "Error!")
       return false;
     }
@@ -53,22 +53,22 @@ export class ComixEditComponent implements OnInit {
   ngOnInit() {
 
     let id = this.route.snapshot.params["id"];
-    
+
     this.comixService.getComixById(id)
       .then((comix: ComixEditModel) => {
         this.comix = comix;
       });
   }
 
-  updateComix(){ 
-    
-    if(this.validateModel()){ 
+  updateComix() {
+
+    if (this.validateModel()) {
       this.comixService.updateComix(this.comix)
-      .then(() => {
-        this.toastr.success("Comix updated sucessfully!", "Success!");
-        this.router.navigate(['/comix/all'])
-      }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"));
-    }    
+        .then(() => {
+          this.toastr.success("Comix updated sucessfully!", "Success!");
+          this.router.navigate(['/comix/all'])
+        }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"));
+    }
   }
 
 }

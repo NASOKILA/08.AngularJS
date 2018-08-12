@@ -12,21 +12,21 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class OrderDetailsComponent implements OnInit {
 
- public order : OrderModel;
+  public order: OrderModel;
 
   constructor(
-      private orderService : OrderService, 
-      private authService : AuthService, 
-      private toastr : ToastrService,
-      private route : ActivatedRoute) { }
+    private orderService: OrderService,
+    private authService: AuthService,
+    private toastr: ToastrService,
+    private route: ActivatedRoute) { }
 
-  ngOnInit() { 
+  ngOnInit() {
 
     let id = this.route.snapshot.params["id"];
 
     this.orderService.getOrderById(id)
-    .then((order : any) => {
-      this.order = order;
-    }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"))
+      .then((order: any) => {
+        this.order = order;
+      }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"))
   }
 }

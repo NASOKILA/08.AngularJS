@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { RequesterService } from "../../app.requester";
 import { ComixEditModel } from "../../models/comix-edit.model";
-import { CommentModel } from "../../models/comment.model";
 import { ComixCreateModel } from "../../models/comix-create.model";
 
 const appKey: string = "kid_rkTx5Dqrm";
@@ -31,20 +30,19 @@ export class ComixService {
         return this.requester.get('appdata', 'comix', 'kinvey')
     }
 
-    public getComixById(id : string) {
-       return this.requester.get('appdata', 'comix/' + id, 'kinvey')
+    public getComixById(id: string) {
+        return this.requester.get('appdata', 'comix/' + id, 'kinvey')
     }
 
-    public createComix(comix : ComixCreateModel){
-       return this.requester.post('appdata', 'comix', 'kinvey', comix)            
+    public createComix(comix: ComixCreateModel) {
+        return this.requester.post('appdata', 'comix', 'kinvey', comix)
     }
 
-    public updateComix(comix : ComixEditModel){
+    public updateComix(comix: ComixEditModel) {
         return this.requester.update('appdata', 'comix/' + comix._id, 'kinvey', comix)
     }
 
-    public deleteComix(id : string){
+    public deleteComix(id: string) {
         return this.requester.remove('appdata', 'comix/' + id, 'kinvey')
     }
 }
-

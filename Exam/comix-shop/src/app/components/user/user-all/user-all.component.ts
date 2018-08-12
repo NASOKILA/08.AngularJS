@@ -34,5 +34,4 @@ export class UserAllComponent implements OnInit {
       })
       .catch(err => this.toastr.error(err.responseJSON.error, 'Error!'));
   }
-
 }

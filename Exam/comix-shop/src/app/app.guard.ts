@@ -16,19 +16,19 @@ import { ToastrService } from 'ngx-toastr';
 export class AppGuard implements CanActivate {
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private router: Router,
     private toastr: ToastrService) { }
 
   canActivate(
-    next: ActivatedRouteSnapshot,  //mwe can access the url from here
+    next: ActivatedRouteSnapshot,  //we can access the url from here
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
     if (this.authService.isAuthenticated() === false) {
       return true;
     }
 
-    this.toastr.error('You are already logged in!');    
+    this.toastr.error('You are already logged in!');
     this.router.navigate(['/home']);
     return false;
   }

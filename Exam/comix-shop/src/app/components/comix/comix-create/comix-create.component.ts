@@ -20,19 +20,19 @@ export class ComixCreateComponent implements OnInit {
 
   private validateModel() {
 
-    if (this.comix.name === "") {
+    if (this.comix.name === null, this.comix.name === "", this.comix.name.trim() === "") {
       this.toastr.error('Invalid name input!', "Error!")
       return false;
     }
-    else if (this.comix.description === "") {
+    else if (this.comix.description === null, this.comix.description === "", this.comix.description.trim() === "") {
       this.toastr.error('Invalid description input!', "Error!")
       return false;
     }
-    else if (this.comix.image === "") {
+    else if (this.comix.image === null, this.comix.image === "", this.comix.image.trim() === "") {
       this.toastr.error('Invalid image input!', "Error!")
       return false;
     }
-    else if (this.comix.date === "") {
+    else if (this.comix.date === null, this.comix.date === "", this.comix.date.trim() === "") {
       this.toastr.error('Invalid date input!', "Error!")
       return false;
     }
@@ -44,7 +44,6 @@ export class ComixCreateComponent implements OnInit {
       this.toastr.error('Stock must be greather than zero!', "Error!")
       return false;
     }
-    
 
     return true;
   }
@@ -54,11 +53,11 @@ export class ComixCreateComponent implements OnInit {
   }
 
   createComix() {
-    
+
     if (this.validateModel()) {
 
       this.comix.comments = [];
-      
+
       this.comixService.createComix(this.comix)
         .then(() => {
           this.toastr.success("Comix created sucessfully!", "Success!");

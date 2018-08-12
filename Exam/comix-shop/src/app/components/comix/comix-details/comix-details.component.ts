@@ -84,13 +84,11 @@ export class ComixDetailsComponent implements OnInit {
       })
   }
 
-
-
-  deleteComment(id : string){
+  deleteComment(id: string) {
     this.commentService.deleteComment(id)
-      .then(() =>{
+      .then(() => {
         this.commentService.getAllComments()
-        .then((commentsArr: CommentModel[]) => {
+          .then((commentsArr: CommentModel[]) => {
             this.toastr.success("Comment removed successfully!", "Success!");
 
             let commentsIdsArray: string[] = [];
@@ -98,7 +96,7 @@ export class ComixDetailsComponent implements OnInit {
             if (this.comix.comments !== undefined) {
               commentsIdsArray = this.comix.comments.toString().split(",");
             }
-    
+
             this.comments = commentsArr.filter(c => commentsIdsArray.includes(c._id));
           });
 

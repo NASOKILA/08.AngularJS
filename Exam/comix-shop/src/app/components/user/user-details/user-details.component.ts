@@ -14,40 +14,40 @@ import { OrderModel } from '../../../models/order.model';
 })
 export class UserDetailsComponent implements OnInit {
 
-  public user : UserModel;
-  public userOrders : OrderModel;
+  public user: UserModel;
+  public userOrders: OrderModel;
   constructor(
-      private userService : UserService, 
-      private authService : AuthService, 
-      private toastr : ToastrService,
-      private orderService : OrderService,
-      private route : ActivatedRoute) { }
+    private userService: UserService,
+    private authService: AuthService,
+    private toastr: ToastrService,
+    private orderService: OrderService,
+    private route: ActivatedRoute) { }
 
-  ngOnInit() { 
+  ngOnInit() {
 
     let id = this.route.snapshot.params["id"];
 
     this.userService.getUserById(id)
-    .then(user => {
+      .then(user => {
 
-      if (user._kmd.hasOwnProperty('roles')) {
-        user.role = "Admin";
-      }
-      else {
-        user.role = "User";
-      }
+        if (user._kmd.hasOwnProperty('roles')) {
+          user.role = "Admin";
+        }
+        else {
+          user.role = "User";
+        }
 
-      this.user = user;
+        this.user = user;
 
-      //get orders for this user
-      this.orderService.getAllOrders()
-        .then((orders : any) => {
+        //get orders for this user
+        this.orderService.getAllOrders()
+          .then((orders: any) => {
 
-          this.userOrders = orders.filter(o => o._acl.creator === user._id);
+            this.userOrders = orders.filter(o => o._acl.creator === user._id);
 
-        }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"))
+          }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"))
 
-    }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"))
+      }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"))
   }
 
 }

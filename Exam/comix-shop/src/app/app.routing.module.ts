@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { HomeComponent } from './components/common/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -34,9 +34,9 @@ const routes = [
     {
         path: 'comix', children: [
             { path: 'all', component: ComixAllComponent },
-            { path: 'create', component: ComixCreateComponent, canActivate : [AdminGuard] },
-            { path: 'edit/:id', component: ComixEditComponent, canActivate : [AdminGuard] },
-            { path: 'delete/:id', component: ComixDeleteComponent, canActivate : [AdminGuard] },
+            { path: 'create', component: ComixCreateComponent, canActivate: [AdminGuard] },
+            { path: 'edit/:id', component: ComixEditComponent, canActivate: [AdminGuard] },
+            { path: 'delete/:id', component: ComixDeleteComponent, canActivate: [AdminGuard] },
             { path: 'details/:id', component: ComixDetailsComponent },
         ], canActivate: [AuthGuard]
     },
@@ -45,16 +45,16 @@ const routes = [
             { path: 'confirm/:id', component: OrderConfirmComponent },
             { path: 'finish/:id', component: OrderFinishComponent },
             { path: 'my', component: OrderMyComponent },
-            { path: 'all', component: OrderAllComponent, canActivate : [AdminGuard]},
+            { path: 'all', component: OrderAllComponent, canActivate: [AdminGuard] },
             { path: 'details/:id', component: OrderDetailsComponent },
         ], canActivate: [AuthGuard]
     },
     {
-        path : 'user', children : [
+        path: 'user', children: [
             { path: 'profile', component: ProfileComponent },
-            { path: 'all', component: UserAllComponent , canActivate : [AdminGuard]},
-            { path: 'details/:id', component: UserDetailsComponent , canActivate : [AdminGuard]},
-        ], canActivate : [AuthGuard]
+            { path: 'all', component: UserAllComponent, canActivate: [AdminGuard] },
+            { path: 'details/:id', component: UserDetailsComponent, canActivate: [AdminGuard] },
+        ], canActivate: [AuthGuard]
     },
     { path: '**', redirectTo: '/' }
 ]

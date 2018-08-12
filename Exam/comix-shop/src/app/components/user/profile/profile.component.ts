@@ -11,34 +11,34 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  
-  
-  myOrders : OrderModel[]
+
+
+  myOrders: OrderModel[]
   constructor(
-    private authService : AuthService,
-    private userService : UserService,
-    private orderService : OrderService,
-    private toastr : ToastrService,
-    ) { }
-  
+    private authService: AuthService,
+    private userService: UserService,
+    private orderService: OrderService,
+    private toastr: ToastrService,
+  ) { }
+
   ngOnInit(): void {
 
     //get orders for this user
     this.orderService.getAllOrders()
-    .then((orders : any) => {
-        
-      this.userService.getAllUsers()
-      .then((users) => {
-        let currentUser = users.filter(
-          u => u.username === this.authService.username
-            && u.email === this.authService.email)[0];
+      .then((orders: any) => {
 
-        this.myOrders = orders
-          .filter(o => o._acl.creator === currentUser._id);
+        this.userService.getAllUsers()
+          .then((users) => {
+            let currentUser = users.filter(
+              u => u.username === this.authService.username
+                && u.email === this.authService.email)[0];
+
+            this.myOrders = orders
+              .filter(o => o._acl.creator === currentUser._id);
+
+          }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"))
 
       }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"))
-
-    }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"))
   }
 
   deleteOrder(id: string) {

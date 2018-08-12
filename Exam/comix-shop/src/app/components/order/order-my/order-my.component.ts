@@ -39,17 +39,29 @@ export class OrderMyComponent implements OnInit {
       }).catch(err => this.toastr.error(err.responseJSON.error, 'Error!'))
   }
 
-
   deleteOrder(id: string) {
+
+
+
     this.orderService.deleteOrder(id)
       .then(() => {
-        this.orderService.getAllOrders()
-          .then((orders: OrderModel[]) => {
 
-            this.orders = orders;
-            this.toastr.success("Order deleted successfully!", "Success!");
+        this.orderService.getAllOrders()
+          .then((orders: any) => {
+
+            this.userService.getAllUsers()
+              .then((users) => {
+                let currentUser = users.filter(
+                  u => u.username === this.authService.username
+                    && u.email === this.authService.email)[0];
+
+                this.orders = orders.filter(o => o._acl.creator === currentUser._id);
+                this.toastr.success("Order deleted successfully!", "Success!");
+
+              }).catch(err => this.toastr.error(err.responseJSON.error, 'Error!'))
           }).catch(err => this.toastr.error(err.responseJSON.error, 'Error!'))
-      }).catch(err => this.toastr.error(err.responseJSON.error, 'Error!'))
+      }).catch(err => this.toastr.error(err.responseJSON.error, 'Error!'));
   }
 
 }
+

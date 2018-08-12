@@ -10,18 +10,18 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HeaderComponent implements OnInit {
 
-  isAdmin : boolean;
+  isAdmin: boolean;
   isAuthenticated: boolean;
-  
+
   constructor(
     private authService: AuthService,
     private router: Router,
     private toast: ToastrService) { }
 
-    ngOnInit() {
-      this.isAdmin = localStorage.getItem("role") === "Admin" ? true : false;
-      this.isAuthenticated = localStorage.getItem("authtoken") ? true : false;
-    }
+  ngOnInit() {
+    this.isAdmin = localStorage.getItem("role") === "Admin" ? true : false;
+    this.isAuthenticated = localStorage.getItem("authtoken") ? true : false;
+  }
 
   logout() {
 

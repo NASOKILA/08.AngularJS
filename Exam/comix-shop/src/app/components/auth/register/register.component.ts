@@ -22,29 +22,33 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  private validateForm(username : string, password : string, confirmPassword : string, email : string) {
+  private validateForm(username: string, password: string, confirmPassword: string, email: string) {
 
-        if (username === "") {
-          this.toastr.error('Invalid username input!', "Error!")
-          return false;
-        }
-        else if (password === "") {
-          this.toastr.error('Invalid password input!', "Error!")
-          return false;
-        }
-        else if (confirmPassword === "") {
-          this.toastr.error('Invalid confirmPassword input!', "Error!")
-          return false;
-        }
-        else if (password !== confirmPassword) {
-          this.toastr.error('Passwords do not match!', "Error!")
-          return false;
-        }
-        else if (email === "") {
-          this.toastr.error('Invalid email input!', "Error!")
-          return false;
-        }
-        
+    if (username === null || username === "" || username.trim() === "") {
+      this.toastr.error('Invalid username input!', "Error!")
+      return false;
+    }
+    else if (password === null || password === "" || password.trim() === "") {
+      this.toastr.error('Invalid password input!', "Error!")
+      return false;
+    }
+    else if (password.length < 6) {
+      this.toastr.error('Password must contain a minimum of 6 characters!', "Error!")
+      return false;
+    }
+    else if (confirmPassword === null || confirmPassword === "" || confirmPassword.trim() === "") {
+      this.toastr.error('Invalid confirmPassword input!', "Error!")
+      return false;
+    }
+    else if (password !== confirmPassword) {
+      this.toastr.error('Passwords do not match!', "Error!")
+      return false;
+    }
+    else if (email === null || email === "" || email.trim() === "") {
+      this.toastr.error('Invalid email input!', "Error!")
+      return false;
+    }
+
     return true;
   }
 
@@ -54,12 +58,12 @@ export class RegisterComponent implements OnInit {
     const confirmPassword = f.value.confirmPassword;
     const email = f.value.email;
 
-    if(this.validateForm(username, password, confirmPassword, email)) { 
+    if (this.validateForm(username, password, confirmPassword, email)) {
       this.authService.register({ username, password, email })
-      .toPromise().then((data: any) => {
-        this.toastr.success('Registration successfull!', 'Success!');
-        this.router.navigate(['auth/login']);
-      }).catch((err) => this.toastr.error(err.error.error, 'Error!'));
+        .toPromise().then((data: any) => {
+          this.toastr.success('Registration successfull!', 'Success!');
+          this.router.navigate(['auth/login']);
+        }).catch((err) => this.toastr.error(err.error.error, 'Error!'));
     }
   }
 }

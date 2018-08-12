@@ -16,8 +16,8 @@ import { OrderService } from '../order.service';
 export class OrderConfirmComponent implements OnInit {
 
   public comix: ComixEditModel;
-  public comments : CommentModel[] = [];
-  public commentDescription : string  = "";
+  public comments: CommentModel[] = [];
+  public commentDescription: string = "";
 
   constructor(
     private comixService: ComixService,
@@ -31,47 +31,46 @@ export class OrderConfirmComponent implements OnInit {
   ngOnInit() {
 
     let id = this.route.snapshot.params["id"];
-    
+
     this.comixService.getComixById(id)
       .then((comix: ComixEditModel) => {
         this.comix = comix;
 
-        let commentsIdsArray : string[] = [];
+        let commentsIdsArray: string[] = [];
 
         if (this.comix.comments !== undefined) {
           commentsIdsArray = comix.comments.toString().split(",");
         }
-        
-        this.commentService.getAllComments()
-        .then((commentsArr : CommentModel[]) => {
 
-          this.comments = commentsArr.filter(c => commentsIdsArray.includes(c._id));
-        
-        });
+        this.commentService.getAllComments()
+          .then((commentsArr: CommentModel[]) => {
+
+            this.comments = commentsArr.filter(c => commentsIdsArray.includes(c._id));
+
+          });
 
       });
   }
 
-  createOrder(){
-    console.log("CREATR ORDER HERE")
-      let comix = this.comix.name;
-      let date = new Date().toLocaleDateString('en-US');
-      let buyer : string = this.authService.username;
-      let price = this.comix.price.toString();
-      
-      this.orderService.createOrder({comix, date, buyer, price})
-        .then((order : any) => {
+  createOrder() {
+    let comix = this.comix.name;
+    let date = new Date().toLocaleDateString('en-US');
+    let buyer: string = this.authService.username;
+    let price = this.comix.price.toString();
 
-          //update comix stock
-          let previousStock : number = this.comix.stock;
-          this.comix.stock = previousStock-1;
-          this.comixService.updateComix(this.comix)
-            .then(c => {
-            
-              this.toastr.success("Order created successfully!", "Success!")
-               this.router.navigate(['/order/finish/' + order._id]);
-            }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"));
-          
-        }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"));
+    this.orderService.createOrder({ comix, date, buyer, price })
+      .then((order: any) => {
+
+        //update comix stock
+        let previousStock: number = this.comix.stock;
+        this.comix.stock = previousStock - 1;
+        this.comixService.updateComix(this.comix)
+          .then(c => {
+
+            this.toastr.success("Order created successfully!", "Success!")
+            this.router.navigate(['/order/finish/' + order._id]);
+          }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"));
+
+      }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"));
   }
 }

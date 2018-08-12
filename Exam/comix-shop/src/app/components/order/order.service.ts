@@ -29,19 +29,19 @@ export class OrderService {
         return this.requester.get('appdata', 'orders', 'kinvey')
     }
 
-    public getOrderById(id : string) {
-       return this.requester.get('appdata', 'orders/' + id, 'kinvey')
+    public getOrderById(id: string) {
+        return this.requester.get('appdata', 'orders/' + id, 'kinvey')
     }
 
-    public createOrder(comix : any){
-       return this.requester.post('appdata', 'orders', 'kinvey', comix)            
+    public createOrder(comix: any) {
+        return this.requester.post('appdata', 'orders', 'kinvey', comix)
     }
 
-    public updateOrder(comix : ComixEditModel){
+    public updateOrder(comix: ComixEditModel) {
         return this.requester.update('appdata', 'orders/' + comix._id, 'kinvey', comix)
     }
 
-    public deleteOrder(id : string){
+    public deleteOrder(id: string) {
         return this.requester.remove('appdata', 'orders/' + id, 'kinvey')
     }
 }

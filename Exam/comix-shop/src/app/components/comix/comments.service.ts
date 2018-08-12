@@ -1,9 +1,7 @@
 import { Injectable } from "@angular/core";
-import { HttpHeaders, HttpClient } from "@angular/common/http";
+import { HttpHeaders } from "@angular/common/http";
 import { RequesterService } from "../../app.requester";
-import { ComixEditModel } from "../../models/comix-edit.model";
 import { CommentModel } from "../../models/comment.model";
-import { ComixCreateModel } from "../../models/comix-create.model";
 import { CommentCreateModel } from "../../models/comment-create.model";
 
 const appKey: string = "kid_rkTx5Dqrm";
@@ -28,26 +26,25 @@ export class CommentsService {
         }
     }
 
-    
+
     public getAllComments() {
         return this.requester.get('appdata', 'comments', 'kinvey')
     }
 
-    public getCommentById(id : string) {
+    public getCommentById(id: string) {
         return this.requester.get('appdata', 'comments/' + id, 'kinvey')
     }
 
-    public createComment(comment : CommentCreateModel){
-        return this.requester.post('appdata', 'comments', 'kinvey', comment)            
+    public createComment(comment: CommentCreateModel) {
+        return this.requester.post('appdata', 'comments', 'kinvey', comment)
     }
 
-    public updateComment(comment : CommentModel){
+    public updateComment(comment: CommentModel) {
         return this.requester.update('appdata', 'comments/' + comment._id, 'kinvey', comment);
     }
-    
-    public deleteComment(id : string){
+
+    public deleteComment(id: string) {
         return this.requester.remove('appdata', 'comments/' + id, 'kinvey')
     }
 
 }
-

@@ -34,5 +34,4 @@ export class OrderAllComponent implements OnInit {
           }).catch(err => this.toastr.error(err.responseJSON.error, 'Error!'))
       }).catch(err => this.toastr.error(err.responseJSON.error, 'Error!'))
   }
-
 }

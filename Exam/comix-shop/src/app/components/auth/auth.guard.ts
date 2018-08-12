@@ -15,12 +15,12 @@ import { ToastrService } from 'ngx-toastr';
 export class AuthGuard implements CanActivate {
 
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private router: Router,
-    private toast : ToastrService) { }
+    private toast: ToastrService) { }
 
   canActivate(
-    next: ActivatedRouteSnapshot,  //mwe can access the url from here
+    next: ActivatedRouteSnapshot,  //we can access the url from here
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
     if (this.authService.isAuthenticated()) {

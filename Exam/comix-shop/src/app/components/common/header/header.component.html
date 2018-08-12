@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-light bg-warning">
         <div class="container">
-            <a class="navbar-brand" routerLink="/">Comix Store</a>
+            <a class="navbar-brand" routerLink="/">Comics Store</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -10,10 +10,10 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    
+
                     <li class="nav-item">
-                            <a class="nav-link" routerLink="/home">Home</a>
-                        </li>
+                        <a class="nav-link" routerLink="/home">Home</a>
+                    </li>
                     <li *ngIf="authService.isAuthenticated()" class="nav-item">
                         <a class="nav-link" routerLink="/comix/all">All Comics</a>
                     </li>

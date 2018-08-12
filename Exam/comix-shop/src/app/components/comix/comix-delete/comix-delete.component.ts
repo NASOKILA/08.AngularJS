@@ -12,30 +12,30 @@ import { ComixEditModel } from '../../../models/comix-edit.model';
 export class ComixDeleteComponent implements OnInit {
 
 
-  public comix : ComixEditModel;
+  public comix: ComixEditModel;
 
   constructor(
-      private comixService : ComixService, 
-      private toastr : ToastrService,
-      private router : Router,
-      private route : ActivatedRoute,
-    ) { }
+    private comixService: ComixService,
+    private toastr: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute,
+  ) { }
 
-  private validateModel(){
-    
-    if(this.comix.name === ""){
+  private validateModel() {
+
+    if (this.comix.name === "") {
       this.toastr.error('Invalid name input!', "Error!")
       return false;
     }
-    else if(this.comix.description === ""){
-      this.toastr.error('Invalid description input!', "Error!")      
+    else if (this.comix.description === "") {
+      this.toastr.error('Invalid description input!', "Error!")
       return false;
     }
-    else if(this.comix.image === ""){
+    else if (this.comix.image === "") {
       this.toastr.error('Invalid image input!', "Error!")
       return false;
     }
-    else if(this.comix.date === ""){
+    else if (this.comix.date === "") {
       this.toastr.error('Invalid date input!', "Error!")
       return false;
     }
@@ -45,19 +45,18 @@ export class ComixDeleteComponent implements OnInit {
 
   ngOnInit() {
 
-    let id = this.route.snapshot.params["id"];    
+    let id = this.route.snapshot.params["id"];
     this.comixService.getComixById(id)
       .then((comix: ComixEditModel) => {
         this.comix = comix;
       });
   }
 
-  deleteComix(){
+  deleteComix() {
     this.comixService.deleteComix(this.comix._id)
-    .then(() => {
-      this.toastr.success("Comix deleted sucessfully!", "Success!");
-      this.router.navigate(['/comix/all'])
-    }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"));
+      .then(() => {
+        this.toastr.success("Comix deleted sucessfully!", "Success!");
+        this.router.navigate(['/comix/all'])
+      }).catch(err => this.toastr.error(err.responseJSON.error, "Error!"));
   }
-
 }

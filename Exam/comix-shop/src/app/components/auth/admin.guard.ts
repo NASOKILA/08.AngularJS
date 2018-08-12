@@ -15,12 +15,12 @@ import { ToastrService } from 'ngx-toastr';
 export class AdminGuard implements CanActivate {
 
   constructor(
-        private authService: AuthService, 
-        private router: Router,
-        private toast : ToastrService) { }
+    private authService: AuthService,
+    private router: Router,
+    private toast: ToastrService) { }
 
   canActivate(
-    next: ActivatedRouteSnapshot,  //mwe can access the url from here
+    next: ActivatedRouteSnapshot,  //we can access the url from here
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
     if (this.authService.isAdmin()) {

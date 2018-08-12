@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ComixEditModel } from '../../../models/comix-edit.model';
-import { RequesterService } from '../../../app.requester';
 import { ComixService } from '../comix.service';
 import { AuthService } from '../../auth/auth.service';
-import { ComixCreateModel } from '../../../models/comix-create.model';
 import { UserService } from '../../user/user.service';
 import { OrderService } from '../../order/order.service';
 import { UserModel } from '../../../models/user.model';
-import { OrderModel } from '../../../models/order.model';
 
 @Component({
   selector: 'app-comix-all',
@@ -21,7 +17,7 @@ export class ComixAllComponent implements OnInit {
   public currentUser: UserModel;
   public currentUserOrders: any[];
 
-  public currentPage : number = 1;
+  public currentPage: number = 1;
 
   constructor(
     private authService: AuthService,
@@ -66,14 +62,10 @@ export class ComixAllComponent implements OnInit {
           })
       })
       .catch(err => console.log(err));
-
   }
 
-
-
-  changePage(page){
+  changePage(page) {
     this.currentPage = page;
   }
-
 
 }

@@ -24,10 +24,11 @@
           </div>
 
           <div class="form-group row">
-              <label class="sr-only">Confirm Password</label>
-              <input class="form-control" required type="password" name="confirmPassword" placeholder="Confirm Password" id="confimrPassword" ngModel #confirmPassword/>
-            </div>
-  
+            <label class="sr-only">Confirm Password</label>
+            <input class="form-control" required type="password" name="confirmPassword" placeholder="Confirm Password" id="confimrPassword"
+              ngModel #confirmPassword/>
+          </div>
+
           <input [disabled]="f.invalid" type="submit" class="btn btn-outline-warning btn-lg btn-block" value="Register" />
         </form>
         <br/>
