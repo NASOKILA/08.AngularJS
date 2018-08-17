@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
 
   myOrders: OrderModel[]
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private userService: UserService,
     private orderService: OrderService,
     private toastr: ToastrService,

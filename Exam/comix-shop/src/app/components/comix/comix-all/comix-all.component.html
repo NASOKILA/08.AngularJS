@@ -13,7 +13,7 @@
         id : 'allComixes',
         itemsPerPage : 3,
         currentPage : currentPage
-      }" class="card col-4 thumbnail classComix" routerLink="/">
+      }" class="card col-4 thumbnail classComix" routerLink="/comix/details/{{ comix._id }}">
         <img class="card-image-top img-fluid img-thumbnail" src="{{ comix.image }}" />
         <div class="card-body">
           <h4 class="card-title">{{ comix.name }}</h4>
