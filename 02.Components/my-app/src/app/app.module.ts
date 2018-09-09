@@ -1,6 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-
-//To use ngForms we have to import this too
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 

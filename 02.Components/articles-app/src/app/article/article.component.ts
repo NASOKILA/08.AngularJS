@@ -35,11 +35,9 @@ export class ArticleComponent implements OnInit {
       this.showHideBtn = true;
       this.showReadMoreBtn = false;
       this.descToShow = this.articleDesc.substring(0, this.articleDescLen);    
-      console.log(this.descToShow.length)    
     }
     else {
       this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
-      console.log(this.descToShow.length)
     }
   }
 

@@ -10,9 +10,9 @@ import { ArticleData } from '../data/data';
 
 export class ArticlesComponent implements OnInit {
 
-  public articles : Array<Article>;
-  
-  constructor() { 
+  public articles: Array<Article>;
+
+  constructor() {
 
   }
 
