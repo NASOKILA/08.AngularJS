@@ -7,16 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateDrivenFormsComponent implements OnInit {
 
-  model : any;
+  model: any;
   constructor() {
     this.model = {
-      "email" : "",
-      "password" : "",
+      "email": "",
+      "password": "",
     }
-   }
-  
-  login(formData){
-      console.log(formData.value);
+  }
+
+  login(formData) {
+    console.log(formData.value);
   }
 
   ngOnInit() {
