@@ -11,12 +11,12 @@ const routes = [
         path: 'auth', children: [
             { path: 'signin', component: SigninComponent },
             { path: 'signup', component: SignupComponent }
-        ], canActivate : [RecipeGuard]
+        ], canActivate: [RecipeGuard]
     },
     {
         path: 'recipes',
-        loadChildren: () => RecipeModule,  //This is lazy loading 
-        canActivate: [AuthGuard]    //To access all these routes we have to pass true the guard
+        loadChildren: () => RecipeModule,
+        canActivate: [AuthGuard]
     }
 ]
 

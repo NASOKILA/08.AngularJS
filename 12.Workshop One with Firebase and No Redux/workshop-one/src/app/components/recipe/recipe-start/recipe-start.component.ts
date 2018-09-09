@@ -8,9 +8,9 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class RecipeStartComponent implements OnInit {
 
-  public email : string; 
+  public email: string;
 
-  constructor(private authService : AuthService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.email = this.authService.currentEmail;

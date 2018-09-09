@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-create',
@@ -11,18 +10,17 @@ import { Router } from '@angular/router';
 export class RecipeCreateComponent implements OnInit {
 
   constructor(
-    private recipeService : RecipeService, 
-    private router : Router) { }  
+    private recipeService: RecipeService) { }
 
   ngOnInit() {
   }
 
-  createRecipe(form : NgForm){
+  createRecipe(form: NgForm) {
 
     const name = form.value.name;
     const imagePath = form.value.imagePath;
     const description = form.value.description;
-  
+
     this.recipeService
       .createRecipe(name, imagePath, description);
   }

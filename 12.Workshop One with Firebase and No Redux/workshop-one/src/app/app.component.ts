@@ -6,10 +6,10 @@ import * as firebase from 'Firebase';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit {
+export class AppComponent implements OnInit {
   title = 'workshop-one';
-  
-  ngOnInit() : void {
+
+  ngOnInit(): void {
     firebase.initializeApp({
       apiKey: "AIzaSyAuIS__e_4nsOs1HvRCf4oIV5uIncHCXNE",
       authDomain: "recipes-app-72484.firebaseapp.com"

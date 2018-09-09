@@ -9,12 +9,12 @@ import { SignInModel } from '../../../models/signin.model';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  
-  constructor(private authService : AuthService) {}
-  
-  ngOnInit(): void {}
 
-  login(form : NgForm){
+  constructor(private authService: AuthService) { }
+
+  ngOnInit(): void { }
+
+  login(form: NgForm) {
 
     const email = form.value.email;
     const password = form.value.password;

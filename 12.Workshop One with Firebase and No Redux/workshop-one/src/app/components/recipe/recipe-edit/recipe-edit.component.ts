@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RecipeListModel } from '../../../models/recipe-list.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RecipeService } from '../recipe.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -45,7 +44,7 @@ export class RecipeEditComponent implements OnInit {
       }
     }
 
-    this.recipeService.editRecipe(body);      
+    this.recipeService.editRecipe(body);
   }
 
 }
