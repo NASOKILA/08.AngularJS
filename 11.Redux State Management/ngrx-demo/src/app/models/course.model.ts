@@ -1,4 +1,4 @@
 export interface Course {
-  name : string;
-  url : string;
+  name: string;
+  url: string;
 }

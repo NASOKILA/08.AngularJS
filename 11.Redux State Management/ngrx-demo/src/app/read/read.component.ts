@@ -12,20 +12,14 @@ import { AppState } from '../store/app.state';
 })
 export class ReadComponent implements OnInit {
 
-  //here we use the model we created for courses
-  //Redux returns Observables so our type must be Observable<Course[]>
-  courses : Observable<Course[]>;
+  courses: Observable<Course[]>;
 
-  //we pass our store so we can dispatch to it
-  constructor(private store : Store<AppState>) {  }
+  constructor(private store: Store<AppState>) { }
 
-  //we load all courses from redux before running
-  //Redux returns Observables
   ngOnInit() {
     this.courses = this.store.select('courses');
   }
 
-  //this function receives an integer which is the id of the course we want to delete
   delCourse(index) {
     this.store.dispatch(new CourseActions.RemoveCourse(index));
   }

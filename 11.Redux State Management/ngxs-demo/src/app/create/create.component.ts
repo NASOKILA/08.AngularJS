@@ -12,7 +12,7 @@ export class CreateComponent implements OnInit {
   constructor(private store: Store) { }
 
   addCourse(name, url) {
-    this.store.dispatch(new AddCourse({name: name, url: url}))
+    this.store.dispatch(new AddCourse({ name: name, url: url }))
   }
 
   ngOnInit() {

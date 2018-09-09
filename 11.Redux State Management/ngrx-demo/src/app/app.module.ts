@@ -19,7 +19,7 @@ import { CreateComponent } from './create/create.component';
       courses: reducer,
     })
   ],
-  providers: [  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

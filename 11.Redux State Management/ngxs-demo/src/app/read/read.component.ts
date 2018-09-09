@@ -12,16 +12,14 @@ import { CourseState } from '../store/state/course.state';
 })
 export class ReadComponent implements OnInit {
 
-  //courses$: Observable<Course>
   @Select(CourseState.getCourses) courses$: Observable<Course>
-  
+
   constructor(private store: Store) {
-      //this.courses$ = this.store.select(state => state.courses.courses)
   }
 
   delCourse(name) {
     this.store.dispatch(new RemoveCourse(name))
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
