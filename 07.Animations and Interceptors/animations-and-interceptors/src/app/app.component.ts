@@ -8,16 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'animations-and-interceptors';
 
-  private list : string[];
-  constructor(){
+  private list: string[];
+  constructor() {
     this.list = ["Banana", "Orange", "Apple"];
   }
 
-  onAdd(item : string){
+  onAdd(item: string) {
     this.list.push(item);
   }
 
-  onDelete(item){
+  onDelete(item) {
     this.list.slice(this.list.indexOf(item), 1);
   }
 }
