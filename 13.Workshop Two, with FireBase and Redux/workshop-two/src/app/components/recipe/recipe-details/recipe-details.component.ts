@@ -14,25 +14,25 @@ import { Observable } from 'rxjs';
 
 export class RecipeDetailsComponent implements OnInit {
 
-  recipe : Observable<RecipeListModel>
-  id : string = this.route.snapshot.params["id"];
+  recipe: Observable<RecipeListModel>
+  id: string = this.route.snapshot.params["id"];
 
-  constructor(private recipeService : RecipeService, 
-    private route : ActivatedRoute,
-    private store : Store<AppState>) { }
+  constructor(private recipeService: RecipeService,
+    private route: ActivatedRoute,
+    private store: Store<AppState>) { }
 
   ngOnInit() {
 
     this.recipeService.getRecipeById(this.id)
-    .subscribe(() => {
-      this.recipe = this.store.select(state => state.recipes.detail)
-      console.log(this.recipe)
-    })
+      .subscribe(() => {
+        this.recipe = this.store.select(state => state.recipes.detail)
+        console.log(this.recipe)
+      })
   }
 
-  delete(){
+  delete() {
 
     this.recipeService
-    .deleteRecipe(this.id);
+      .deleteRecipe(this.id);
   }
 }

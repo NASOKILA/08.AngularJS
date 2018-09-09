@@ -9,13 +9,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  
-  constructor(private authService : AuthService) {
-  }
-  
-  ngOnInit(): void {}
 
-  signup(form : NgForm){
+  constructor(private authService: AuthService) {
+  }
+
+  ngOnInit(): void { }
+
+  signup(form: NgForm) {
 
     const email = form.value.email;
     const password = form.value.password;

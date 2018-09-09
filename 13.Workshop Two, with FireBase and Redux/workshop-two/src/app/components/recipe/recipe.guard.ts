@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { 
-  CanActivate, 
-  ActivatedRouteSnapshot, 
-  RouterStateSnapshot, 
-  Router } from '@angular/router';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  Router
+} from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
@@ -13,13 +14,13 @@ import { AuthService } from '../auth/auth.service';
 })
 export class RecipeGuard implements CanActivate {
 
-constructor(private authService : AuthService, private router : Router){}
+  constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(
-    next: ActivatedRouteSnapshot,  //mwe can access the url from here
+    next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    
-    if(this.authService.isAuthenticated() === false){
+
+    if (this.authService.isAuthenticated() === false) {
       return true;
     }
 

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeListModel } from '../../../models/recipe-list.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from '../recipe.service';
-import { NgForm } from '@angular/forms';
-import { map } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../../store/app.state';
 
@@ -20,8 +18,7 @@ export class RecipeEditComponent implements OnInit {
   constructor(
     private recipeService: RecipeService,
     private route: ActivatedRoute,
-    private router: Router,
-    private store : Store<AppState>) { }
+    private store: Store<AppState>) { }
 
   ngOnInit() {
 
@@ -51,7 +48,7 @@ export class RecipeEditComponent implements OnInit {
       }
     }
 
-    this.recipeService.editRecipe(body);      
+    this.recipeService.editRecipe(body);
   }
 
 }

@@ -1,7 +1,5 @@
-
-
-<h2>HAHAHA</h2>
-
+<h2>
+  HAHAHA</h2>
 
 <div *ngIf="recipe" class="row">
   <div class="col-xs-12">
@@ -11,15 +9,8 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="name">Name</label>
-            <input
-              required
-              type="text"
-              id="name"
-              name="name"
-              value="{{ recipe.name }}"
-              [(ngModel)]="recipe.name"
-              #name
-              class="form-control" />
+            <input required type="text" id="name" name="name" value="{{ recipe.name }}" [(ngModel)]="recipe.name" #name class="form-control"
+            />
           </div>
         </div>
       </div>
@@ -27,14 +18,7 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="imagePath">Image URL</label>
-            <input
-              required
-              type="text"
-              id="imagePath"
-              name="imagePath"
-              [(ngModel)]="recipe.imagePath"
-              #imagePath
-              value="{{ recipe.imagePath }}"
+            <input required type="text" id="imagePath" name="imagePath" [(ngModel)]="recipe.imagePath" #imagePath value="{{ recipe.imagePath }}"
               class="form-control">
           </div>
         </div>
@@ -50,20 +34,12 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="description">Description</label>
-            <textarea
-              required
-              type="text"
-              id="description"
-              class="form-control"
-              [(ngModel)]="recipe.description"
-              #description
-              value="{{ recipe.description }}"
-              name="description"
-              rows="6"></textarea>
+            <textarea required type="text" id="description" class="form-control" [(ngModel)]="recipe.description" #description value="{{ recipe.description }}"
+              name="description" rows="6"></textarea>
           </div>
         </div>
       </div>
-     <button [disabled]="editForm.invalid" class="btn btn-primary" type="submit">Edit</button>
+      <button [disabled]="editForm.invalid" class="btn btn-primary" type="submit">Edit</button>
     </form>
 
   </div>

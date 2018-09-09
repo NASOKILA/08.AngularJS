@@ -14,13 +14,13 @@ export class RecipeAllComponent implements OnInit {
 
   allRecipes: Observable<RecipeListModel[]>
   constructor(
-    private recipeService : RecipeService, 
-    private store : Store<AppState>) { }
+    private recipeService: RecipeService,
+    private store: Store<AppState>) { }
 
   ngOnInit() {
 
     this.recipeService.getAllRecipes().subscribe(() => {
-      
+
       this.allRecipes = this.store.select(state => {
         return state.recipes.all;
       });

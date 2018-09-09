@@ -10,14 +10,14 @@ import { NgForm } from '@angular/forms';
 export class RecipeCreateComponent {
 
   constructor(
-    private recipeService : RecipeService, ) { }  
+    private recipeService: RecipeService, ) { }
 
-  createRecipe(form : NgForm){
+  createRecipe(form: NgForm) {
 
     const name = form.value.name;
     const imagePath = form.value.imagePath;
     const description = form.value.description;
-  
+
     this.recipeService
       .createRecipe(name, imagePath, description);
   }
