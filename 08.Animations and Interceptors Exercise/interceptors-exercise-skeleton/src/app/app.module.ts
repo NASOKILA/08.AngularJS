@@ -41,23 +41,22 @@ import { CustomFormsModule } from 'ng2-validation';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule, // import BrowserAnimationsModule 
-    ToastrModule.forRoot(), //import ToastrModule
-    CustomFormsModule 
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    CustomFormsModule
   ],
-  providers: [ 
+  providers: [
     AuthService,
-    {//import both interceptors
-      provide : HTTP_INTERCEPTORS,
-      useClass : JwtInterceptor,
-      multi : true
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptor,
+    multi: true
     },
-    {
-      provide : HTTP_INTERCEPTORS,
-      useClass : ErrorInterceptor,
-      multi : true
-    },
-    FurntureService
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorInterceptor,
+    multi: true
+  },
+  FurntureService
   ],
   bootstrap: [AppComponent]
 })

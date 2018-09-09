@@ -4,7 +4,7 @@ const furnitureData = require('../data/furniture')
 
 const router = new express.Router()
 
-function validateFurnitureForm (payload) {
+function validateFurnitureForm(payload) {
   const errors = {}
   let isFormValid = true
   let message = ''

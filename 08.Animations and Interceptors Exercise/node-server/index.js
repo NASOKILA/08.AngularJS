@@ -15,7 +15,7 @@ const port = 5000
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(passport.initialize())
-app.use(cors({origin: 'http://localhost:4200'}))
+app.use(cors({ origin: 'http://localhost:4200' }))
 
 passport.use('local-signup', localSignupStrategy)
 passport.use('local-login', localLoginStrategy)

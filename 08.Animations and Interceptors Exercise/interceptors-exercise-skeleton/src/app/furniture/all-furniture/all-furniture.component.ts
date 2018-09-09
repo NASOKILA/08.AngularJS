@@ -10,16 +10,16 @@ import { Observable } from 'rxjs';
 })
 export class AllFurnitureComponent implements OnInit {
 
-  furnitures : FurnitureModel[];
+  furnitures: FurnitureModel[];
 
-  constructor(private furnitureService : FurntureService) { }
+  constructor(private furnitureService: FurntureService) { }
 
   ngOnInit() {
 
     this.furnitureService.getAllfurniture()
-    .subscribe(data => {
-      this.furnitures = data;
-    });
-    
+      .subscribe(data => {
+        this.furnitures = data;
+      });
+
   }
 }

@@ -8,13 +8,13 @@ const registerUrl = 'http://localhost:5000/auth/signup';
 
 @Injectable()
 export class AuthService {
-  constructor(private http : HttpClient) {  }
+  constructor(private http: HttpClient) { }
 
-  register(body : SignUpModel) {
+  register(body: SignUpModel) {
     return this.http.post(registerUrl, body);
   }
 
-  login(body : SignInModel) {
+  login(body: SignInModel) {
     return this.http.post(loginUrl, body);
   }
 
@@ -22,7 +22,7 @@ export class AuthService {
     localStorage.clear();
   }
 
-  isAuthenticated() : boolean {
+  isAuthenticated(): boolean {
     return localStorage.getItem('currentUser') !== null;
   }
 }

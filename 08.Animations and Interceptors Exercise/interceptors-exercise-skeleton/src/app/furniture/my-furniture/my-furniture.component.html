@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row space-top">
-          <div class="col-md-12">
-           <h1>Profile Page</h1>
-            <p>Listing  your furniture.</p>
+        <div class="col-md-12">
+            <h1>Profile Page</h1>
+            <p>Listing your furniture.</p>
         </div>
     </div>
     <div *ngIf="furnitures" class="row space-top">
@@ -11,7 +11,8 @@
                 <div class="card-body">
                     <blockquote class="card-blockquote">
                         <img width="100%" src="{{ furniture.image }}" />
-                        <br/><br/>
+                        <br/>
+                        <br/>
                         <p>{{ furniture.make }} {{ furniture.model }}</p>
                         <footer>
                             <cite title="Source Title">{{ furniture.description }}</cite>
@@ -25,6 +26,4 @@
                 </div>
             </div>
         </div>
-</div>
-
-<!---->
+    </div>

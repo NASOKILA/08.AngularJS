@@ -12,22 +12,21 @@ import { Router } from '@angular/router';
 
 export class MyFurnitureComponent implements OnInit {
 
-  furnitures : Observable<FurnitureModel[]>;
-  
+  furnitures: Observable<FurnitureModel[]>;
+
   constructor(
-    private furnitureService : FurntureService,
-    private router : Router) { }
+    private furnitureService: FurntureService,
+    private router: Router) { }
 
-  ngOnInit() {  
+  ngOnInit() {
 
-    //if we wnt to use it like this we need to add   " | async" in the *ngFor() 
     this.furnitures = this.furnitureService.myFurniture();
   }
 
-  delete(id : string){
+  delete(id: string) {
     this.furnitureService.deleteFurniture(id)
       .subscribe(data => {
-         this.router.navigate(["/furniture/all"]);
+        this.router.navigate(["/furniture/all"]);
       })
   }
 

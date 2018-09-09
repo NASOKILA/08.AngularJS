@@ -9,14 +9,14 @@ import { FurntureService } from '../furnture.service';
 })
 export class CreateFurnitureComponent implements OnInit {
 
-  bindingModel : CreateFurnitureModel = new CreateFurnitureModel("", "", 0, "", 1, "",);;
-  
-  constructor(private furntureService : FurntureService) {
+  bindingModel: CreateFurnitureModel = new CreateFurnitureModel("", "", 0, "", 1, "", );;
+
+  constructor(private furntureService: FurntureService) {
   }
 
   ngOnInit() { }
 
-  create(){
+  create() {
 
     this.furntureService.createFurniture(this.bindingModel)
       .subscribe();
