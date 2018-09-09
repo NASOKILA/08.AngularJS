@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
-  //providers: [HomeService]
 })
 
 export class HomeComponent implements OnInit {
@@ -15,16 +14,13 @@ export class HomeComponent implements OnInit {
   private homeService : HomeService;
   private gitgubProfileData;
   
-  //we inject the dependency for the homeService we have to inject it first
   constructor(homeService:HomeService, private httpClient:HttpClient) {
     this.homeService = homeService;
     this.someData = this.homeService.getData();
    }
 
   ngOnInit() {
-    console.log(this.someData);
   
-    //we can catch errors in the subscribe
     this.homeService
       .getGitHubProfile("NASOKILA")
       .subscribe(

@@ -12,7 +12,6 @@ export class ContactComponent implements OnInit {
   constructor(private route : ActivatedRoute) {}
 
   ngOnInit() {
-    //take the prameters information from the route
     this.route.params
       .subscribe(params => console.log(params));
   }
