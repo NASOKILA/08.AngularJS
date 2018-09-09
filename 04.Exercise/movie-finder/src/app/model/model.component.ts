@@ -9,7 +9,6 @@ import { Movie } from '../models/movie';
 
 export class ModelComponent implements OnInit {
   
-  //input variable `movie` which waits for the father component to pass it a value
   @Input('movie') movie : Movie;
   constructor() { }
 

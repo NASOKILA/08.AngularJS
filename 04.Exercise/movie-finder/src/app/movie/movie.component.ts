@@ -10,15 +10,14 @@ import { Movie } from '../models/movie';
 })
 export class MovieComponent implements OnInit {
 
-  public movie: Movie; 
+  public movie: Movie;
 
-  constructor(private route : ActivatedRoute, private MoviesService : MoviesService) { }
+  constructor(private route: ActivatedRoute, private MoviesService: MoviesService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       let id = params['id'];
       this.MoviesService.getMovie(id).subscribe(selectedMovie => {
-        console.log(selectedMovie)
         this.movie = selectedMovie;
       });
     })

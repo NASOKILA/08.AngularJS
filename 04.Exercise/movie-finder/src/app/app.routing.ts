@@ -6,10 +6,9 @@ import { MovieComponent } from "./movie/movie.component";
 import { AboutComponent } from "./about/about.component";
 
 const routes: Routes = [
-    {path: '', component: MoviesComponent},
-    {path: 'movie/:id', component: MovieComponent},
-    {path: '/about', component: AboutComponent},
+    { path: '', component: MoviesComponent },
+    { path: 'movie/:id', component: MovieComponent },
+    { path: '/about', component: AboutComponent },
 ];
 
-export let Routing : ModuleWithProviders = RouterModule.forRoot(routes)
-    
+export let Routing: ModuleWithProviders = RouterModule.forRoot(routes)

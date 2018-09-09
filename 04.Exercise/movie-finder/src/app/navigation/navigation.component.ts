@@ -10,7 +10,7 @@ export class NavigationComponent implements OnInit {
 
   title: String = "Movie Finder";
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
   }
