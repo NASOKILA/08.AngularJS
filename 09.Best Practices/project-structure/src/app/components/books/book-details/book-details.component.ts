@@ -8,16 +8,16 @@ import { BooksService } from '../../../core/services/books/books.service';
 })
 
 export class BookDetailsComponent implements OnInit {
-  public book : Book;
+  public book: Book;
 
   constructor(
-    private route : ActivatedRoute,
-    private booksService : BooksService
+    private route: ActivatedRoute,
+    private booksService: BooksService
   ) { }
 
   ngOnInit() {
-    let id : number = Number(this.route.snapshot.params["id"]);
-    
+    let id: number = Number(this.route.snapshot.params["id"]);
+
     this.book = this.booksService.getById(id);
   }
 }

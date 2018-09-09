@@ -14,4 +14,4 @@ import { bookRoutes } from './books.routing';
     ...bookComponents
   ]
 })
-export class BooksModule {  }
+export class BooksModule { }

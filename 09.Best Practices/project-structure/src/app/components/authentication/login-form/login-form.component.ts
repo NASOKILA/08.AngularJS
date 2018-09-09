@@ -5,13 +5,12 @@ import { AuthService } from '../../../core/services/authentication/auth.service'
   templateUrl: './login-form.component.html'
 })
 export class LoginFormComponent implements OnInit {
-  constructor(private authService : AuthService) { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit() { 
+  ngOnInit() {
   }
 
   onSubmit() {
-    /// Log in User
     this.authService.tryNavigate();
   }
 }

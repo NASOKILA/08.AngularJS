@@ -5,26 +5,26 @@ import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthService {
-  public redirectUrl : string;
+  public redirectUrl: string;
 
   constructor(
-    private httpService : HttpClientService,
-    private router : Router
+    private httpService: HttpClientService,
+    private router: Router
   ) { }
 
-  login(loginModel : LoginInputModel) : void {
-    // this.httpService.post()
-  }
-
-  register() : void {
+  login(loginModel: LoginInputModel): void {
 
   }
 
-  logout() : void {
+  register(): void {
 
   }
 
-  isLoggedIn() : boolean {
+  logout(): void {
+
+  }
+
+  isLoggedIn(): boolean {
     return false;
   }
 

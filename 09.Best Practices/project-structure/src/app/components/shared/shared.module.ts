@@ -16,4 +16,4 @@ import { sharedComponents } from './index';
     ...sharedComponents
   ]
 })
-export class SharedModule {  }
+export class SharedModule { }

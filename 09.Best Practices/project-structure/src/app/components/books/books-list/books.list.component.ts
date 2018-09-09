@@ -7,13 +7,13 @@ import { Book } from '../../../core/models/view-models/book.view.model';
 })
 
 export class BooksListComponent implements OnInit {
-  public books : Book[];
-  
+  public books: Book[];
+
   constructor(
-    private booksService : BooksService
+    private booksService: BooksService
   ) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.books = this.booksService.getAll();
   }
 }

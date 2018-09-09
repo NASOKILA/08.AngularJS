@@ -3,9 +3,9 @@ import { CommonModule } from "@angular/common";
 import { AuthGuard } from "./authentication/auth.guard";
 
 @NgModule({
-  providers: [ AuthGuard ],
+  providers: [AuthGuard],
   imports: [
     CommonModule
   ]
 })
-export class GuardsModule {  }
+export class GuardsModule { }

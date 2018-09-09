@@ -1,4 +1,3 @@
-// All Modules in App
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -9,19 +8,14 @@ import { AuthModule } from './components/authentication/auth.module';
 import { SharedModule } from './components/shared/shared.module';
 import { GuardsModule } from './core/guards/guards.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-
-// Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-
-import { routes } from './app.routing';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { AuthGuard } from './core/guards/authentication/auth.guard';
 import { LoginFormComponent } from './components/authentication/login-form/login-form.component';
 import { RegisterFormComponent } from './components/authentication/register-form/register.form.component';
 import { BooksModule } from './components/books/books.module';
-
 
 @NgModule({
   declarations: [
@@ -35,7 +29,7 @@ import { BooksModule } from './components/books/books.module';
     ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', canActivate: [ AuthGuard ] , component: HomeComponent },
+      { path: 'home', canActivate: [AuthGuard], component: HomeComponent },
       { path: 'login', component: LoginFormComponent },
       { path: 'register', component: RegisterFormComponent },
       { path: 'books', loadChildren: () => BooksModule }
@@ -45,7 +39,7 @@ import { BooksModule } from './components/books/books.module';
     SharedModule,
     GuardsModule
   ],
-  providers: [ 
+  providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
@@ -55,7 +49,7 @@ import { BooksModule } from './components/books/books.module';
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
-    }  
+    }
   ],
   bootstrap: [AppComponent]
 })

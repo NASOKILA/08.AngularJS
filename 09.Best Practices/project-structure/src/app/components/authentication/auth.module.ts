@@ -11,4 +11,4 @@ import { authComponents } from './index';
     CommonModule
   ]
 })
-export class AuthModule {  }
+export class AuthModule { }

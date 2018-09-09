@@ -12,23 +12,21 @@ import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private toastr : ToastrService) { }
+  constructor(private toastr: ToastrService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler)
     : Observable<HttpEvent<any>> {
-      return next.handle(req)
-        .pipe(catchError((err : HttpErrorResponse) => {
+    return next.handle(req)
+      .pipe(catchError((err: HttpErrorResponse) => {
 
-          switch (err.status) {
-            case 400:
-              break;
-            case 401:
-              break;
+        switch (err.status) {
+          case 400:
+            break;
+          case 401:
+            break;
+        }
 
-            // Add other status codes here
-          }
-
-          return Observable.throw(err);
-        }));
+        return Observable.throw(err);
+      }));
   }
 }
