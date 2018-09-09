@@ -25,14 +25,14 @@
                         <div class="pull-right">
                             <a href="/furniture/details/{{ furniture.id }}" class="btn btn-info">Details</a>
                             <a (click)="delete(furniture.id)" class="btn btn-danger">Delete Item</a>
-                            <a *ngIf="isAdmin" href="furniture/edit/{{ furniture.id }}" class="btn btn-warning">Edit Item</a>                            
+                            <a *ngIf="isAdmin" href="furniture/edit/{{ furniture.id }}" class="btn btn-warning">Edit Item</a>
                         </div>
                     </blockquote>
                 </div>
-            </div>  
+            </div>
         </div>
     </div>
-    
+
     <br/>
     <br/>
     <pagination-controls id="allFurniture" (pageChange)="pageChanged($event)" maxSize="9" directionLinks="true" autoHide="true"

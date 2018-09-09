@@ -46,7 +46,7 @@ module.exports = {
         const searchTerm = search.toLowerCase()
 
         return furnitureModel.indexOf(searchTerm) >= 0 ||
-        furnitureMake.indexOf(searchTerm) >= 0
+          furnitureMake.indexOf(searchTerm) >= 0
       })
       .sort((a, b) => b.id - a.id)
       .slice(startIndex, endIndex)

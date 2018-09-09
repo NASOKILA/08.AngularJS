@@ -11,23 +11,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FurnitureDetailsComponent implements OnInit {
 
-  furniture : FurnitureModel;
+  furniture: FurnitureModel;
 
   constructor(
-    private furnitureService : FurntureService, 
-    private route : ActivatedRoute) { }
+    private furnitureService: FurntureService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
 
     let id = this.route.snapshot.params["id"];
-    
+
     this.furnitureService.furnitureDetails(id)
       .subscribe(data => {
         this.furniture = data;
       });
-
-
-
   }
-
 }

@@ -4,7 +4,7 @@ const furnitureData = require('../data/furniture')
 
 const router = new express.Router()
 
-function validateFurnitureForm (payload) {
+function validateFurnitureForm(payload) {
   const errors = {}
   let isFormValid = true
   let message = ''
@@ -149,7 +149,7 @@ router.put('/edit/:id', authCheck, (req, res) => {
   const user = req.user.email;
   const furniture = req.body;
 
-  if (!furniture ||  !req.user.roles.includes('Admin')) {
+  if (!furniture || !req.user.roles.includes('Admin')) {
     return res.status(404).json({
       success: false,
       message: 'Furniture does not exists!'
@@ -173,7 +173,7 @@ router.put('/edit/:id', authCheck, (req, res) => {
   })
 })
 
-router.get('/:id',  authCheck, (req, res) => {
+router.get('/:id', authCheck, (req, res) => {
   const id = req.params.id
 
   const furniture = furnitureData.findById(id)

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateFurnitureModel } from '../models/create-furniture.model';
 import { FurntureService } from '../furnture.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { EditFurnitureModel } from '../models/edit-furniture.model';
@@ -13,34 +12,34 @@ import { ToastrService } from 'ngx-toastr';
 
 export class FurnitureEditComponent implements OnInit {
 
-  bindingModel : EditFurnitureModel;
-  
-  constructor(private furntureService : FurntureService,
-    private route : ActivatedRoute,
-    private toastr : ToastrService,
-    private router : Router
+  bindingModel: EditFurnitureModel;
+
+  constructor(private furntureService: FurntureService,
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private router: Router
   ) {
   }
 
   ngOnInit() {
     let id = this.route.snapshot.params["id"];
-    
+
     this.furntureService.getFurnitureById(id)
       .subscribe(data => {
         this.bindingModel = new EditFurnitureModel(
           data.id,
-          data.make, 
-          data.model, 
-          data.year, 
-          data.description, 
-          data.price, 
-          data.image, 
+          data.make,
+          data.model,
+          data.year,
+          data.description,
+          data.price,
+          data.image,
           data.material);
       });
   }
 
-  update(){
-  
+  update() {
+
     console.log('UPDATE HERE')
     this.furntureService.updateFurniture(this.bindingModel)
       .toPromise()
@@ -51,7 +50,7 @@ export class FurnitureEditComponent implements OnInit {
       })
       .catch(err => {
         this.toastr.error(err.message, 'Error!');
-        
+
       });
   }
 

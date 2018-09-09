@@ -8,9 +8,9 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  model : SignUpModel;
+  model: SignUpModel;
 
-  constructor(private authService : AuthService) { 
+  constructor(private authService: AuthService) {
     this.model = new SignUpModel("", "", "");
   }
 

@@ -5,7 +5,7 @@ const userData = require('../data/users');
 
 const router = new express.Router()
 
-function validateSignupForm (payload) {
+function validateSignupForm(payload) {
   const errors = {}
   let isFormValid = true
   let message = ''
@@ -36,7 +36,7 @@ function validateSignupForm (payload) {
   }
 }
 
-function validateLoginForm (payload) {
+function validateLoginForm(payload) {
   const errors = {}
   let isFormValid = true
   let message = ''

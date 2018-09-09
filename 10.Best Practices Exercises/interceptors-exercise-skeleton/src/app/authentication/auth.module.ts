@@ -4,15 +4,15 @@ import { AuthService } from "./auth.service";
 import { FormsModule } from "@angular/forms";
 
 @NgModule({
-    declarations : [
+    declarations: [
         ...authComponents
     ],
-    imports : [
+    imports: [
         FormsModule
     ],
-    providers : [
+    providers: [
         AuthService
     ]
 })
 
-export class AuthModule {}
+export class AuthModule { }

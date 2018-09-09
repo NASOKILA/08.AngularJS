@@ -7,22 +7,22 @@ import { CommonModule } from "@angular/common";
 import { NgxPaginationModule } from "ngx-pagination";
 
 @NgModule({
-    declarations : [
+    declarations: [
         ...furnitureComponents
     ],
-    imports : [
+    imports: [
         FormsModule,
         NgxPaginationModule,
         FurnitureRoutingModule,
         CommonModule,
-        NgxPaginationModule    //pagination
+        NgxPaginationModule
     ],
-    providers : [
+    providers: [
         FurntureService
     ],
-    exports : [
+    exports: [
         CommonModule
     ]
 })
 
-export class FurnitureModule {}
+export class FurnitureModule { }

@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-// Components
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './authentication/signin/signin.component';
 import { SignupComponent } from './authentication/signup/signup.component';
@@ -11,23 +9,25 @@ import { FurnitureDetailsComponent } from './furniture/furniture-details/furnitu
 import { MyFurnitureComponent } from './furniture/my-furniture/my-furniture.component';
 import { FurnitureEditComponent } from './furniture/furniture-edit/furniture-edit.component';
 
-const routes : Routes = [
+const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'furniture', children: [
+  {
+    path: 'furniture', children: [
 
-    { path: 'create', component: CreateFurnitureComponent },
-    { path: 'all', component: AllFurnitureComponent },
-    { path: 'details/:id', component: FurnitureDetailsComponent },
-    { path: 'edit/:id', component: FurnitureEditComponent },
-    { path: 'mine', component: MyFurnitureComponent },
-  ] },
+      { path: 'create', component: CreateFurnitureComponent },
+      { path: 'all', component: AllFurnitureComponent },
+      { path: 'details/:id', component: FurnitureDetailsComponent },
+      { path: 'edit/:id', component: FurnitureEditComponent },
+      { path: 'mine', component: MyFurnitureComponent },
+    ]
+  },
 ]
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {  }
+export class AppRoutingModule { }

@@ -13,32 +13,32 @@ import { UserModel } from '../models/user.model';
 })
 export class AllFurnitureComponent implements OnInit {
 
-  furnitures : FurnitureModel[];
-  pageSize : number = 3;
-  currentPage : number = 1;
-  isAdmin : Boolean;
-  
-  constructor(private furnitureService : FurntureService,
-    private authService : AuthService,
-    private router : Router) { }
+  furnitures: FurnitureModel[];
+  pageSize: number = 3;
+  currentPage: number = 1;
+  isAdmin: Boolean;
+
+  constructor(private furnitureService: FurntureService,
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
     this.isAdmin = this.authService.isAdmin();
-    
+
     this.furnitureService.getAllfurniture()
-    .subscribe(data => {
-      this.furnitures = data;
-    }); 
+      .subscribe(data => {
+        this.furnitures = data;
+      });
   }
 
-  delete(id : string){
+  delete(id: string) {
     this.furnitureService.deleteFurniture(id)
       .subscribe(data => {
-         this.router.navigate(["/furniture/mine"]);
+        this.router.navigate(["/furniture/mine"]);
       })
   }
 
-  pageChanged(page : number){
+  pageChanged(page: number) {
     this.currentPage = page;
   }
 }

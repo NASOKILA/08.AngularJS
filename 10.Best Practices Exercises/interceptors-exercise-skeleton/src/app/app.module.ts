@@ -31,20 +31,20 @@ import { FurnitureEditComponent } from './furniture/furniture-edit/furniture-edi
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule, // import BrowserAnimationsModule 
-    ToastrModule.forRoot(), //import ToastrModule
-    CustomFormsModule 
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    CustomFormsModule
   ],
-  providers: [ 
-    {//import both interceptors
-      provide : HTTP_INTERCEPTORS,
-      useClass : JwtInterceptor,
-      multi : true
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
     },
     {
-      provide : HTTP_INTERCEPTORS,
-      useClass : ErrorInterceptor,
-      multi : true
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
     },
   ],
   bootstrap: [AppComponent]

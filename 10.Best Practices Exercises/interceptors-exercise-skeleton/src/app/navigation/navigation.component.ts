@@ -9,13 +9,13 @@ import { AuthService } from '../authentication/auth.service';
 })
 
 export class NavigationComponent implements OnInit {
-  dropdownLi : string = "nav-item dropdown";
-  dropdownMenu : string = "dropdown-menu";
+  dropdownLi: string = "nav-item dropdown";
+  dropdownMenu: string = "dropdown-menu";
 
   constructor(
-    private router : Router,
-    private authService : AuthService
-  ) {  }
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
   }
@@ -26,12 +26,12 @@ export class NavigationComponent implements OnInit {
   }
 
   expand() {
-    this.dropdownLi.endsWith('show') 
-    ? this.dropdownLi = "nav-item dropdown" 
-    : this.dropdownLi = "nav-item dropdown show";
+    this.dropdownLi.endsWith('show')
+      ? this.dropdownLi = "nav-item dropdown"
+      : this.dropdownLi = "nav-item dropdown show";
 
     this.dropdownMenu.endsWith('show')
-    ? this.dropdownMenu = "dropdown-menu"
-    : this.dropdownMenu = "dropdown-menu show";
+      ? this.dropdownMenu = "dropdown-menu"
+      : this.dropdownMenu = "dropdown-menu show";
   }
 }
