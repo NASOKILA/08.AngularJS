@@ -39,11 +39,11 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     HttpModule
   ],
   providers: [AuthService,
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi : true
-  }], //we provide our service to be used even outside this component
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

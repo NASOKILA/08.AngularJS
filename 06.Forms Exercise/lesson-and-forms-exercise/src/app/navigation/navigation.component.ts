@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 export class NavigationComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router : Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -19,15 +19,11 @@ export class NavigationComponent implements OnInit {
     this.authService.logout()
       .toPromise()
       .then(res => {
-        console.log("LOGGED OUT")
         this.authService.authtoken = "";
         this.authService.username = "";
         localStorage.clear();
-        
-        //redirect to home page
-        this.router.navigate(['/login']);
-        
 
+        this.router.navigate(['/login']);
       })
       .catch(err => console.log(err));
   }

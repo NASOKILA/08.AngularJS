@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public model : LoginModel;
-  public error : Boolean;
-  public errorMessage : String;
+  public model: LoginModel;
+  public error: Boolean;
+  public errorMessage: String;
 
-  constructor(private authService: AuthService, private router : Router) { 
+  constructor(private authService: AuthService, private router: Router) {
     this.model = new LoginModel("", "");
     this.error = false;
     this.errorMessage = "";
@@ -24,35 +24,25 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(){
-    
+  login() {
+
     this.authService
-    .login(this.model)
-    .toPromise()
-    .then((res : any) => {
-      console.log("LOGGED IN")
-      console.log(res)
-  
-      //save name to localstorage
-      this.authService.authtoken = res._kmd.authtoken;
-      this.authService.username = res.username;
-      localStorage.setItem("authtoken", res._kmd.authtoken);
-      localStorage.setItem('username', res.username);
-      
-      console.log(this.authService.authtoken);
-      console.log(this.authService.username);
-  
-      //redirect to home page
-      this.router.navigate(['/']);
+      .login(this.model)
+      .toPromise()
+      .then((res: any) => {
+        this.authService.authtoken = res._kmd.authtoken;
+        this.authService.username = res.username;
+        localStorage.setItem("authtoken", res._kmd.authtoken);
+        localStorage.setItem('username', res.username);
 
-    }).catch(err => {
-      console.log("ERROR")
-      console.log(err);
+        this.router.navigate(['/']);
 
-      if(err){
-        this.error = true;
-        this.errorMessage = err.error.description;
-      }
-    }); 
+      }).catch(err => {
+
+        if (err) {
+          this.error = true;
+          this.errorMessage = err.error.description;
+        }
+      });
   }
 }

@@ -7,17 +7,16 @@ import { HomeComponent } from "./home/home.component";
 import { LessonComponent } from "./lesson/lesson.component";
 import { AuthGuard } from "./guards/auth.guard";
 
-const routes : Routes = [
+const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
-    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }, // we use our guard 
-    { path: 'lesson', component: LessonComponent }, 
-    { path: 'login', component: LoginComponent }, 
+    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'lesson', component: LessonComponent },
+    { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent }
 ]
 
-//we declare the module, import and export it
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

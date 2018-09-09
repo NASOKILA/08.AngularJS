@@ -7,23 +7,19 @@ import { AuthService } from '../../authentication/auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  
-  constructor(private authService : AuthService, private router : Router){
+
+  constructor(private authService: AuthService, private router: Router) {
 
   }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-   
-     //If we return true we pass thru the guard otherwise we cannot and we will redirect.
 
-      //we use the function from the service to see if we can activate and pass true this guard
-      if(this.authService.checkIfLoggedIn()){
-        return true;
-      }
-
-      //if not we redirect and we return true
-      this.router.navigate(['/login']);
-      return false;
+    if (this.authService.checkIfLoggedIn()) {
+      return true;
     }
+
+    this.router.navigate(['/login']);
+    return false;
+  }
 }
